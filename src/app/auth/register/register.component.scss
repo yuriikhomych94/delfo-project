@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  justify-content: center;
+  // TODO change styles
+}
+
+.form {
+  max-width: 420px;
+}
+
+mat-form-field {
+  width: 100%;
+}

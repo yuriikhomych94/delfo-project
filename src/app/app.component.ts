@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { LanguagesService } from './core/languages/languages.service';
 
 @Component({
   selector: 'app-root',
-  imports: [ RouterOutlet, TranslateModule, TranslatePipe ],
+  imports: [ RouterOutlet, TranslatePipe ],
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

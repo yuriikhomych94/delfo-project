@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
+import { LanguagesService } from './core/languages/languages.service';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +11,11 @@ import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+
+  languageService = inject(LanguagesService);
+
+  constructor() {
+    this.languageService.initLanguage();
+  }
 
 }

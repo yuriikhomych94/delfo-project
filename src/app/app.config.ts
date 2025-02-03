@@ -9,11 +9,11 @@ import { provideTranslationFeatures } from './core/languages/languages.config';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideHttpClient(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
     provideAnimationsAsync(),
-    provideHttpClient(),
-    provideTranslationFeatures()
+    ...provideTranslationFeatures()
   ]
 };

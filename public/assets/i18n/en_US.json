@@ -1,3 +1,17 @@
 {
-  "title": "Food delivery"
+  "title": "Food delivery",
+  "auth": {
+    "shared": {
+      "email": "Email",
+      "password": "Password",
+      "username": "Name",
+      "password-placeholder": "Enter password",
+      "email-placeholder": "Enter email",
+      "username-placeholder": "Enter your name"
+    },
+    "login": "Login",
+    "register": "Register",
+    "no-account-question": "Don't have an account yet?",
+    "have-account-question": "Do you already have an account?"
+  }
 }

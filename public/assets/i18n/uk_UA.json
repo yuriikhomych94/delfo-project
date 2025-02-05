@@ -1,3 +1,17 @@
 {
-  "title": "Доствка їжі"
+  "title": "Доствка їжі",
+  "auth": {
+    "shared": {
+      "email": "Електронна пошта",
+      "password": "Пароль",
+      "username": "Імя",
+      "password-placeholder": "Введіть пароль",
+      "email-placeholder": "Введіть електронну пошту",
+      "username-placeholder": "Введіть ваше імя"
+    },
+    "login": "Увійти",
+    "register": "Зареєструватись",
+    "no-account-question": "У вас ще немає облікового запису?",
+    "have-account-question": "У вас вже є обліковий запис?"
+  }
 }

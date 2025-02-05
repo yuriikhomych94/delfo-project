@@ -1,0 +1,20 @@
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.form {
+  max-width: 420px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.flex-s-b {
+  //TODO create global class
+  display: flex;
+  justify-content: space-between;
+}

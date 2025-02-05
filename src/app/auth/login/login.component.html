@@ -1,1 +1,17 @@
-<p>login works!</p>
+<div class="form-container">
+  <form [formGroup]="formGroup" class="form">
+    <mat-form-field appearance="outline" floatLabel="always">
+      <mat-label>{{'auth.shared.email' | translate}}</mat-label>
+      <input matInput formControlName="email" type="text" placeholder="{{'auth.shared.email-placeholder' | translate}}"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" floatLabel="always">
+      <mat-label>{{'auth.shared.password' | translate}}</mat-label>
+      <input matInput formControlName="password" type="password" placeholder="{{'auth.shared.password-placeholder' | translate}}"/>
+    </mat-form-field>
+    <div class="flex-s-b">
+      <button mat-raised-button (click)="login()">{{'auth.login' | translate}}</button>
+      <button mat-raised-button>{{'auth.no-account-question' | translate}}</button>
+    </div>
+  </form>
+</div>

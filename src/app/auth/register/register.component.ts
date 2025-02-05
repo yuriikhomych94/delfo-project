@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MatButton } from '@angular/material/button';
 import { MatFormField, MatInput, MatLabel } from '@angular/material/input';
 import { AuthService } from '../auth.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,8 @@ import { AuthService } from '../auth.service';
     ReactiveFormsModule,
     MatInput,
     MatLabel,
-    MatFormField
+    MatFormField,
+    TranslatePipe
   ],
   standalone: true,
   templateUrl: './register.component.html',

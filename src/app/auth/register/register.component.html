@@ -1,18 +1,22 @@
-<form [formGroup]="formGroup" class="form">
-  <mat-form-field appearance="outline" floatLabel="always">
-    <mat-label>Name</mat-label>
-    <input matInput formControlName="username" type="text" placeholder="Enter your name"/>
-  </mat-form-field>
+<div class="form-container">
+  <form [formGroup]="formGroup" class="form">
+    <mat-form-field appearance="outline" floatLabel="always">
+      <mat-label>{{'auth.shared.username' | translate}}</mat-label>
+      <input matInput formControlName="username" type="text" placeholder="{{'auth.shared.username-placeholder' | translate}}"/>
+    </mat-form-field>
 
-  <mat-form-field appearance="outline" floatLabel="always">
-    <mat-label>Email</mat-label>
-    <input matInput formControlName="email" type="text" placeholder="Enter email"/>
-  </mat-form-field>
+    <mat-form-field appearance="outline" floatLabel="always">
+      <mat-label>{{'auth.shared.email' | translate}}</mat-label>
+      <input matInput formControlName="email" type="text" placeholder="{{'auth.shared.email-placeholder' | translate}}"/>
+    </mat-form-field>
 
-  <mat-form-field appearance="outline" floatLabel="always">
-    <mat-label>Password</mat-label>
-    <input matInput formControlName="password" type="password" placeholder="Enter password"/>
-  </mat-form-field>
-  <button mat-raised-button (click)="register()">Register</button>
-  <button mat-raised-button>Do you already have an account?</button>
-</form>
+    <mat-form-field appearance="outline" floatLabel="always">
+      <mat-label>{{'auth.shared.password' | translate}}</mat-label>
+      <input matInput formControlName="password" type="password" placeholder="{{'auth.shared.password-placeholder' | translate}}"/>
+    </mat-form-field>
+    <div class="flex-s-b">
+      <button mat-raised-button (click)="register()">{{'auth.register' | translate}}</button>
+      <button mat-raised-button>{{'auth.have-account-question' | translate}}</button>
+    </div>
+  </form>
+</div>

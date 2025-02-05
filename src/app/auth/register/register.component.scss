@@ -1,7 +1,8 @@
-:host {
+.form-container {
   display: flex;
+  align-items: center;
   justify-content: center;
-  // TODO change styles
+  min-height: 100vh;
 }
 
 .form {
@@ -10,4 +11,10 @@
 
 mat-form-field {
   width: 100%;
+}
+
+.flex-s-b {
+  //TODO create global class
+  display: flex;
+  justify-content: space-between;
 }

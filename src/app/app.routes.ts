@@ -1,9 +1,14 @@
 import { Routes } from '@angular/router';
 import { ErrorsRouterPath, RoutesPath } from './core/types/routes.types';
+import { AuthGuard } from '@angular/fire/auth-guard';
+import { redirectUnauthorizedToLogin } from './core/guards/auth/auth-guards';
+
 
 export const routes: Routes = [
   {
-    path: RoutesPath.main,
+    path: '',
+    canActivate: [ AuthGuard ],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
     loadChildren: () => import('./main/layout.routes').then(r => r.layoutRoutes)
   },
   {

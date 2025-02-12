@@ -6,6 +6,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
+import { AuthRoutesPath, RoutesPath } from '../../core/types/routes.types';
 
 @Component({
   selector: 'app-login',
@@ -36,4 +37,7 @@ export class LoginComponent {
     this.authService.login(email, password);
   }
 
+  goToRegisterPage() {
+    this.router.navigate([ `${RoutesPath.auth}/${AuthRoutesPath.register}` ]);
+  }
 }

@@ -5,6 +5,7 @@ import { MatButton } from '@angular/material/button';
 import { MatFormField, MatInput, MatLabel } from '@angular/material/input';
 import { AuthService } from '../auth.service';
 import { TranslatePipe } from '@ngx-translate/core';
+import { AuthRoutesPath, RoutesPath } from '../../core/types/routes.types';
 
 @Component({
   selector: 'app-register',
@@ -33,9 +34,10 @@ export class RegisterComponent {
 
   register() {
     const { username, email, password } = this.formGroup.value;
-    this.authService.register(username, email, password).subscribe(() => {
-      console.log('success register')
-    });
+    this.authService.register(username, email, password);
   }
 
+  goToLoginPage() {
+    this.router.navigate([`${RoutesPath.auth}/${AuthRoutesPath.login}`]);
+  }
 }

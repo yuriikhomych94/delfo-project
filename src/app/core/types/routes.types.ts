@@ -1,7 +1,6 @@
 export enum RoutesPath  {
   auth = 'auth',
   errors = 'errors',
-  main = 'main'
 }
 
 export enum AuthRoutesPath {

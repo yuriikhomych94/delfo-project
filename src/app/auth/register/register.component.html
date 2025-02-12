@@ -16,7 +16,7 @@
     </mat-form-field>
     <div class="flex-s-b">
       <button mat-raised-button (click)="register()">{{'auth.register' | translate}}</button>
-      <button mat-raised-button>{{'auth.have-account-question' | translate}}</button>
+      <button mat-raised-button (click)="goToLoginPage()">{{'auth.have-account-question' | translate}}</button>
     </div>
   </form>
 </div>

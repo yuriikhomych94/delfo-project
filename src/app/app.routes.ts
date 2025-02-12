@@ -1,20 +1,22 @@
 import { Routes } from '@angular/router';
+import { ErrorsRouterPath, RoutesPath } from './core/types/routes.types';
 
 export const routes: Routes = [
   {
-    path: '',
+    path: RoutesPath.main,
     loadChildren: () => import('./main/layout.routes').then(r => r.layoutRoutes)
   },
   {
-    path: 'auth',
+    path: RoutesPath.auth,
     loadChildren: () => import('./auth/auth.routes').then(r => r.authRoutes)
   },
   {
-    path: 'error',
-    loadChildren: () => import('./errors/error.routes').then(m => m.errorRoutes)
+    path: RoutesPath.errors,
+    loadChildren: () => import('./errors/error.routes').then(r => r.errorRoutes)
   },
   {
     path: '**',
-    redirectTo: 'error'
+    pathMatch: 'full',
+    redirectTo: `${RoutesPath.errors}/${ErrorsRouterPath.error_404}`
   }
 ];

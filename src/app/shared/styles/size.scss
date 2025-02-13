@@ -1,0 +1,65 @@
+@use "variables";
+
+.m-l-s {
+  margin-left: variables.$size-s;
+}
+
+.m-l-m {
+  margin-left: variables.$size-m;
+}
+
+.m-l-l {
+  margin-left: variables.$size-l;
+}
+
+.m-l-xl {
+  margin-left: variables.$size-xl;
+}
+
+.m-r-s {
+  margin-right: variables.$size-s;
+}
+
+.m-r-m {
+  margin-right: variables.$size-m;
+}
+
+.m-r-l {
+  margin-right: variables.$size-l;
+}
+
+.m-r-xl {
+  margin-right: variables.$size-xl;
+}
+
+.m-t-s {
+  margin-top: variables.$size-s;
+}
+
+.m-t-m {
+  margin-top: variables.$size-m;
+}
+
+.m-t-l {
+  margin-top: variables.$size-l;
+}
+
+.m-t-xl {
+  margin-top: variables.$size-xl;
+}
+
+.m-b-s {
+  margin-bottom: variables.$size-s;
+}
+
+.m-b-m {
+  margin-bottom: variables.$size-m;
+}
+
+.m-b-l {
+  margin-bottom: variables.$size-l;
+}
+
+.m-b-xl {
+  margin-bottom: variables.$size-xl;
+}

@@ -1,8 +1,8 @@
 <mat-toolbar>
   <app-logo></app-logo>
   <div class="actions">
-    <app-languages style="margin-right: 8px;"></app-languages>
-    <app-cart style="margin-right: 8px;"></app-cart>
+    <app-languages class="m-r-l"></app-languages>
+    <app-cart class="m-r-l"></app-cart>
     <button mat-raised-button color="warn" (click)="authService.logout()">
       <mat-icon>logout</mat-icon>
         {{'header.logout' | translate}}

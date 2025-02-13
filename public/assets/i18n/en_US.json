@@ -13,5 +13,8 @@
     "register": "Register",
     "no-account-question": "Don't have an account yet?",
     "have-account-question": "Do you already have an account?"
+  },
+  "header": {
+    "logout": "Logout"
   }
 }

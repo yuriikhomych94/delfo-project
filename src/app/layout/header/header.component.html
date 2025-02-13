@@ -1,0 +1,11 @@
+<mat-toolbar>
+  <app-logo></app-logo>
+  <div class="actions">
+    <app-languages style="margin-right: 8px;"></app-languages>
+    <app-cart style="margin-right: 8px;"></app-cart>
+    <button mat-raised-button color="warn" (click)="authService.logout()">
+      <mat-icon>logout</mat-icon>
+        {{'header.logout' | translate}}
+    </button>
+  </div>
+</mat-toolbar>

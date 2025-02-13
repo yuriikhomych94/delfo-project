@@ -13,5 +13,8 @@
     "register": "Зареєструватись",
     "no-account-question": "У вас ще немає облікового запису?",
     "have-account-question": "У вас вже є обліковий запис?"
+  },
+  "header": {
+    "logout": "Вийти"
   }
 }

@@ -9,7 +9,7 @@ export const routes: Routes = [
     path: '',
     canActivate: [ AuthGuard ],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
-    loadChildren: () => import('./main/layout.routes').then(r => r.layoutRoutes)
+    loadChildren: () => import('./layout/layout.routes').then(r => r.layoutRoutes)
   },
   {
     path: RoutesPath.auth,

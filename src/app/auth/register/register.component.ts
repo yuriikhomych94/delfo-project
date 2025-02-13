@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatButton } from '@angular/material/button';
@@ -21,16 +21,16 @@ import { AuthRoutesPath, RoutesPath } from '../../core/types/routes.types';
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
 
-  formGroup: FormGroup = new FormGroup({
-    username: new FormControl('', [ Validators.required ]),
-    email: new FormControl('', [ Validators.required, Validators.email ]),
-    password: new FormControl('', [ Validators.required, Validators.minLength(6) ]),
-  });
+  formGroup!: FormGroup;
 
   private authService = inject(AuthService);
   private router = inject(Router);
+
+  ngOnInit() {
+    this.initForm();
+  }
 
   register() {
     const { username, email, password } = this.formGroup.value;
@@ -38,6 +38,14 @@ export class RegisterComponent {
   }
 
   goToLoginPage() {
-    this.router.navigate([`${RoutesPath.auth}/${AuthRoutesPath.login}`]);
+    this.router.navigate([ `${RoutesPath.auth}/${AuthRoutesPath.login}` ]);
+  }
+
+  private initForm() {
+    this.formGroup = new FormGroup({
+      username: new FormControl('', [ Validators.required ]),
+      email: new FormControl('', [ Validators.required, Validators.email ]),
+      password: new FormControl('', [ Validators.required, Validators.minLength(6) ]),
+    });
   }
 }

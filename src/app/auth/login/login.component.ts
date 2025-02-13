@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
@@ -22,15 +22,16 @@ import { AuthRoutesPath, RoutesPath } from '../../core/types/routes.types';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-  formGroup: FormGroup = new FormGroup({
-    email: new FormControl('', [ Validators.required, Validators.email ]),
-    password: new FormControl('', [ Validators.required, Validators.minLength(6) ]),
-  });
+  formGroup!: FormGroup;
 
   private authService = inject(AuthService);
   private router = inject(Router);
+
+  ngOnInit() {
+    this.initForm();
+  }
 
   login() {
     const { email, password } = this.formGroup.value;
@@ -39,5 +40,12 @@ export class LoginComponent {
 
   goToRegisterPage() {
     this.router.navigate([ `${RoutesPath.auth}/${AuthRoutesPath.register}` ]);
+  }
+
+  private initForm() {
+    this.formGroup = new FormGroup({
+      email: new FormControl('', [ Validators.required, Validators.email ]),
+      password: new FormControl('', [ Validators.required, Validators.minLength(6) ]),
+    });
   }
 }

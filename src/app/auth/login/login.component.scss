@@ -1,8 +1,8 @@
-.form-container {
+:host {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .form {

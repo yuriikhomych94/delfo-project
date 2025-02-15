@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
@@ -17,12 +17,8 @@ import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
 })
 export class MenuButtonComponent {
 
-  @Input()
-  icon!: string;
+  icon = input.required<string>();
+  label = input.required<string>();
+  disabled = input.required<boolean>();
 
-  @Input()
-  label: string = '';
-
-  @Input()
-  disabled: boolean = false;
 }

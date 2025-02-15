@@ -1,6 +1,6 @@
-<button [matMenuTriggerFor]="menu" [disabled]="disabled" mat-raised-button>
-  <mat-icon>{{icon}}</mat-icon>
-  <span class="mat-body-2">{{ label }}</span>
+<button [matMenuTriggerFor]="menu" [disabled]="disabled()" mat-raised-button>
+  <mat-icon>{{icon()}}</mat-icon>
+  <span class="mat-body-2">{{ label() }}</span>
 </button>
 <mat-menu #menu="matMenu">
   <ng-content></ng-content>

@@ -3,7 +3,6 @@ import { MatButton } from '@angular/material/button';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { AuthRoutesPath, RoutesPath } from '../../core/types/routes.types';
@@ -28,7 +27,6 @@ export class LoginComponent implements OnInit {
 
   formGroup!: FormGroup;
 
-  private authService = inject(AuthService);
   private router = inject(Router);
   private store = inject(Store);
 

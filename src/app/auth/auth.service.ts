@@ -7,7 +7,6 @@ import {
   updateProfile
 } from '@angular/fire/auth';
 import { from, map, Observable, switchMap } from 'rxjs';
-import { Router } from '@angular/router';
 import { UserInterface } from './auth.types';
 import { User } from '@firebase/auth';
 
@@ -18,7 +17,6 @@ import { User } from '@firebase/auth';
 export class AuthService {
 
   private firebaseAuth = inject(Auth);
-  private router = inject(Router);
 
   login(email: string, password: string): Observable<UserInterface> {
     return from(signInWithEmailAndPassword(this.firebaseAuth, email, password)).pipe(

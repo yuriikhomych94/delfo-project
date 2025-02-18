@@ -6,9 +6,10 @@ import {
   signOut,
   updateProfile
 } from '@angular/fire/auth';
-import { from, Observable } from 'rxjs';
+import { from, map, Observable, switchMap } from 'rxjs';
 import { Router } from '@angular/router';
-import { AuthRoutesPath, RoutesPath } from '../core/types/routes.types';
+import { UserInterface } from './auth.types';
+import { User } from '@firebase/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -19,30 +20,31 @@ export class AuthService {
   private firebaseAuth = inject(Auth);
   private router = inject(Router);
 
-
-  register(username: string, email: string, password: string): Observable<void> {
-    return from(createUserWithEmailAndPassword(this.firebaseAuth, email, password)
-      .then(response => updateProfile(response.user, {
-        displayName: username
-      }))
-      .then(() => this.goToHomePage())
+  login(email: string, password: string): Observable<UserInterface> {
+    return from(signInWithEmailAndPassword(this.firebaseAuth, email, password)).pipe(
+      map(({ user }) => this.mapToUserInterface(user))
     );
   }
 
-  login(email: string, password: string): Observable<void> {
-    return from(signInWithEmailAndPassword(this.firebaseAuth, email, password).then(() => {
-      this.goToHomePage();
-    }))
+  register(username: string, email: string, password: string): Observable<UserInterface> {
+    return from(createUserWithEmailAndPassword(this.firebaseAuth, email, password)).pipe(
+      switchMap(response =>
+        updateProfile(response.user, { displayName: username }).then(() => response.user)
+      ),
+      map((user: User) => this.mapToUserInterface(user))
+    );
   }
 
   logout(): Observable<void> {
-    return from(signOut(this.firebaseAuth).then(() => {
-      this.router.navigate([ `${RoutesPath.auth}/${AuthRoutesPath.login}` ]);
-    }));
+    return from(signOut(this.firebaseAuth));
   }
 
-  private goToHomePage(): void {
-    this.router.navigate(['/']);
+  private mapToUserInterface(user: User): UserInterface {
+    return {
+      uid: user.uid,
+      email: user.email ?? '',
+      displayName: user.displayName ?? '',
+    };
   }
 
 }

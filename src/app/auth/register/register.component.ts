@@ -3,9 +3,13 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import { MatButton } from '@angular/material/button';
 import { MatFormField, MatInput, MatLabel } from '@angular/material/input';
-import { AuthService } from '../auth.service';
 import { TranslatePipe } from '@ngx-translate/core';
 import { AuthRoutesPath, RoutesPath } from '../../core/types/routes.types';
+import { Store } from '@ngrx/store';
+import { authActions } from '../../core/store/auth/auth.actions';
+import { selectIsLoading } from '../../core/store/auth/auth.reducers';
+import { Observable } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-register',
@@ -15,33 +19,33 @@ import { AuthRoutesPath, RoutesPath } from '../../core/types/routes.types';
     MatInput,
     MatLabel,
     MatFormField,
-    TranslatePipe
+    TranslatePipe,
+    AsyncPipe
   ],
   standalone: true,
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent implements OnInit {
+  private router = inject(Router);
+  private store = inject(Store);
 
   formGroup!: FormGroup;
+  isLoading$: Observable<boolean> = this.store.select(selectIsLoading);
 
-  private authService = inject(AuthService);
-  private router = inject(Router);
-
-  ngOnInit() {
+  ngOnInit(): void {
     this.initForm();
   }
 
-  register() {
-    const { username, email, password } = this.formGroup.value;
-    this.authService.register(username, email, password);
+  register(): void {
+    this.store.dispatch(authActions.register(this.formGroup.value))
   }
 
-  goToLoginPage() {
+  goToLoginPage(): void {
     this.router.navigate([ `${RoutesPath.auth}/${AuthRoutesPath.login}` ]);
   }
 
-  private initForm() {
+  private initForm(): void {
     this.formGroup = new FormGroup({
       username: new FormControl('', [ Validators.required ]),
       email: new FormControl('', [ Validators.required, Validators.email ]),

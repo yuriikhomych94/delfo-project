@@ -5,7 +5,8 @@
     <app-cart class="m-r-l"></app-cart>
     <button mat-raised-button color="warn" (click)="logout()">
       <mat-icon>logout</mat-icon>
-        {{'header.logout' | translate}}
+      {{ 'header.logout' | translate }}
     </button>
   </div>
 </mat-toolbar>
+<mat-progress-bar mode="indeterminate" color="accent" *ngIf="uiService.inProgress$ | async"/>

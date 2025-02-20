@@ -10,7 +10,7 @@ import { Store } from '@ngrx/store';
 import { authActions } from '../../core/store/auth/auth.actions';
 import { UiService } from '../../core/services/ui.service';
 import { MatProgressBar } from '@angular/material/progress-bar';
-import { AsyncPipe, NgIf } from '@angular/common';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -23,7 +23,6 @@ import { AsyncPipe, NgIf } from '@angular/common';
     LogoComponent,
     TranslatePipe,
     MatProgressBar,
-    AsyncPipe,
     NgIf
   ],
   standalone: true,

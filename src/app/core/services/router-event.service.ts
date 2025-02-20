@@ -21,10 +21,7 @@ export class RouterEventService {
         if ( event instanceof NavigationStart ) {
           return true;
         }
-        if ( event instanceof NavigationEnd ) {
-          return false;
-        }
-        if ( event instanceof NavigationCancel ) {
+        if (event instanceof NavigationEnd || event instanceof NavigationCancel) {
           return false;
         }
         return undefined;

@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { inject, Injectable } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { RouterEventService } from './router-event.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,11 +8,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 export class UiService {
 
-  private inProgressSubject = new BehaviorSubject<boolean>(false);
-  inProgress$: Observable<boolean> = this.inProgressSubject.asObservable();
-
-  setProgress(value: boolean): void {
-    this.inProgressSubject.next(value);
-  }
+  private routerEventsService = inject(RouterEventService);
+  inProgress = toSignal(this.routerEventsService.inProgress$, { initialValue: false });
 
 }
